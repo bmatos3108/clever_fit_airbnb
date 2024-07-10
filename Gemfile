@@ -77,3 +77,5 @@ end
 gem "devise"
 
 gem 'faker'
+# gem 'activestorage-cloudinary-service'
+# gem "cloudinary"
