@@ -36,7 +36,8 @@ users = User.all
     description_menu: Faker::Food.description,
     available: true,
     price: rand(500..1500),
-    user: users.sample # Assign a random user to each service
+    user: users.sample, # Assign a random user to each service,
+    image_urls: Array.new(5) { Faker::Placeholdit.image(size: '800x600', format: 'jpg', background_color: 'ffffff', text: 'Food Image') }
   )
 end
 
