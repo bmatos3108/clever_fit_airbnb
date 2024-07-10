@@ -5,7 +5,7 @@
     <p><strong>Description:</strong> <%= @service.description_menu %></p>
     <p><strong>Address:</strong> <%= @service.address %></p>
     <p><strong>Price:</strong> $<%= @service.price %></p>
-    <%= link_to 'Book This Service', new_booking_service_booking_path(@service, @booking), class: 'btn btn-primary' %>
+    <%= link_to 'Book This Service', new_service_booking_path(@service), class: 'btn btn-primary' %>
     <%# <%= render 'reviews/reviews', reviews: @reviews %>
   </div>
     <h2>Reviews</h2>
