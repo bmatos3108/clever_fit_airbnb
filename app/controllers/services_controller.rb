@@ -7,10 +7,10 @@ class ServicesController < ApplicationController
   end
 
   def show
-
-   # @reviews = @service.reviews
-    @bookings = @service.bookings
+  @service = Service.find(params[:id])
+  @reviews = @service.bookings.flat_map(&:review)
   end
+
 
   def edit; end
 

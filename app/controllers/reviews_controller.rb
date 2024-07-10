@@ -1,51 +1,51 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: %i[new create]
-  before_action :set_service, only: %i[show edit update destroy]
+  before_action :set_reviews, only: %i[new create]
+  before_action :set_services, only: %i[show edit update destroy]
 
   def index
-    @user = User.find(params[:user_id])
     @reviews = @user.reviews
   end
-
+  def edit
+    @reviews = Review.find(params[:id])
+  end
   def show
-    @review = @service.reviews.find(params[:id])
+    @reviews = @service.reviews.find(params[:id])
   end
 
   def new
-    @review = @service.reviews.new
+    @reviews = @service.reviews.new
   end
 
   def create
-    @review = @service.reviews.new(review_params)
-    @review.user = current_user
-    if @review.save
+    @reviews = @service.reviews.new(review_params)
+    @reviews.user = current_user
+    if @reviews.save
       redirect_to @service, notice: 'Review was successfully created.'
     else
       render :new
     end
   end
 
-  def edit
-  end
+  # Remove the duplicate method definition
 
   def update
-    if @review.update(review_params)
-      redirect_to @review.service, notice: 'Review was successfully updated.'
+    if @reviews.update(review_params)
+      redirect_to @reviews.service, notice: 'Review was successfully updated.'
     else
       render :edit
     end
   end
 
   def destroy
-    @service = @review.service
-    @review.destroy
+    @service = @reviews.service
+    @reviews.destroy
     redirect_to @service, notice: 'Review was successfully deleted.'
   end
 
   private
 
-  def set_review
-    @review = Review.find(params[:id])
+  def set_reviews
+    @reviews = Review.find(params[:id])
   end
 
   def set_service
@@ -53,6 +53,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:rating, :comment)
+    params.require(:reviews).permit(:rating, :comment)
   end
 end
