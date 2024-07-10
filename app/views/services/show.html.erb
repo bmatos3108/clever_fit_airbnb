@@ -2,8 +2,9 @@
   <div>
     <h1><%= @service.name %></h1>
     <p><%= @service.description_menu %></p>
+    <p><strong>Address:</strong> <%= @service.address %></p>
+    <p><strong>Price:</strong> $<%= @service.price %></p>
     <h2>Reviews</h2>
-    
-    <%#= render 'reviews/reviews', reviews: @reviews %>
+    <%# <%= render 'reviews/reviews', reviews: @reviews %> %>
   </div>
 </div>
