@@ -11,40 +11,13 @@
     </header>
 
     <div class="container">
+      <% @services.each do |service| %>
         <div class="square">
-            <div class="image" style="background-image: url(https://media.istockphoto.com/id/1389857295/pt/foto/african-american-woman-bakers-looking-at-camera-chef-baker-in-a-chef-dress-and-hat-cooking.jpg?s=612x612&w=0&k=20&c=cMGIngH5ou32_Lc3Q6yyokR_fhVXQEbdYDcFicoVHA4=);"></div>
-            <div class="text">Italian Cuisine</div>
+          <%= link_to service_path(service) do %>
+              <div class="image" style="background-image: url(https://media.istockphoto.com/id/1389857295/pt/foto/african-american-woman-bakers-looking-at-camera-chef-baker-in-a-chef-dress-and-hat-cooking.jpg?s=612x612&w=0&k=20&c=cMGIngH5ou32_Lc3Q6yyokR_fhVXQEbdYDcFicoVHA4=);"></div>
+              <div class="text"><%= service.name %></div>
+              </a>
+          <% end %>
         </div>
-        <div class="square">
-            <div class="image" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/78/Chef_Tom_Wandera_at_work.jpg);"></div>
-            <div class="text">Japanese Cuisine</div>
-        </div>
-        <div class="square">
-            <div class="image" style="background-image: url(https://www.heraldtribune.com/gcdn/authoring/2019/06/26/NSHT/ghows-LK-8c18d1ea-2228-1fe7-e053-0100007f4e92-7ed4c5c4.jpeg?width=660&height=440&fit=crop&format=pjpg&auto=webp);"></div>
-            <div class="text">Mexican Cuisine</div>
-        </div>
-        <div class="square">
-            <div class="image" style="background-image: url(https://img.freepik.com/fotos-gratis/retrato-de-chef-sorridente-de-uniforme_329181-675.jpg);"></div>
-            <div class="text">Indian Cuisine</div>
-        </div>
-        <div class="square">
-            <div class="image" style="background-image: url(https://snibbs.co/cdn/shop/articles/Pros_and_Cons_of_Being_a_Chef_1000x667.jpg?v=1688650492);"></div>
-            <div class="text">Chinese Cuisine</div>
-        </div>
-        <div class="square">
-            <div class="image" style="background-image: url(https://www.shutterstock.com/image-photo/closeup-concentrated-male-chef-garnishing-600nw-2466916037.jpg);"></div>
-            <div class="text">French Cuisine</div>
-        </div>
-        <div class="square">
-            <div class="image" style="background-image: url(https://www.infoescola.com/wp-content/uploads/2011/02/chef.jpg);"></div>
-            <div class="text">Thai Cuisine</div>
-        </div>
-        <div class="square">
-            <div class="image" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Gordon_Ramsay.jpg/640px-Gordon_Ramsay.jpg);"></div>
-            <div class="text">Greek Cuisine</div>
-        </div>
-        <div class="square">
-            <div class="image" style="background-image: url(https://www.caterer.com/advice/wp-content/uploads/head-chef-executive-chef-job-description.jpg);"></div>
-            <div class="text">Brazilian Cuisine</div>
-        </div>
+      <% end %>
     </div>
