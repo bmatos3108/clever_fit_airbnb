@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :services, except: %i[index edit update] do
     resources :bookings, only: %i[new create]
-    resources :reviews, only: %i[create new]
+    resources :reviews, only: %i[create new index]
   end
 
   resources :bookings, only: %i[index show edit update destroy] do
