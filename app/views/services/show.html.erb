@@ -1,0 +1,7 @@
+<h1><%= @service.name %></h1>
+<p><%= @service.description %></p>
+
+<h2>Reviews</h2>
+<%= render 'reviews/reviews', reviews: @reviews %>
+
+<%= link_to 'Add Review', new_service_review_path(@service), class: 'btn btn-primary' %>
