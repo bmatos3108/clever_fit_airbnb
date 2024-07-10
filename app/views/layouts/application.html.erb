@@ -15,9 +15,9 @@
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
     <div class="container-fluid">
       <!-- Logo on the left -->
-      <a class="navbar-brand" href="#">
+      <%= link_to root_path, class: 'navbar-brand' do %>
         <%= image_tag 'https://cdn5.vectorstock.com/i/1000x1000/22/08/chef-logo-template-vector-30172208.jpg', alt: 'Chef Airbnb Logo', width: 50, height: 50 %>
-      </a>
+      <% end %>
       <!-- "Chef Airbnb" text in the middle -->
       <div class="navbar-text mx-auto">
         <h1 class="green-small-text">Chef Airbnb</h1>
@@ -25,8 +25,8 @@
       <!-- Upload picture or sign-in/sign-out button on the right -->
       <div class="navbar-right">
         <% if user_signed_in? %>
-          <%= link_to 'Upload Picture', '#', class: 'btn btn-secondary rounded-btn' %>
-          <%= link_to 'Sign Out', destroy_user_session_path,  data: {turbo_method: :delete}, class: 'btn btn-danger' %>
+          <%= link_to 'Profile', user_path(current_user.id), class: 'btn btn-secondary rounded-btn' %>
+          <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-danger' %>
         <% else %>
           <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary' %>
         <% end %>
