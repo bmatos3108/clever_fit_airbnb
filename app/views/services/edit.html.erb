@@ -1,0 +1,9 @@
+<h2>Edit my service</h2>
+<%= simple_form_for(@service) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :description_menu %>
+  <%= f.input :price %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.submit %>
+<% end %>
