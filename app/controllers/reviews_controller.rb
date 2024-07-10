@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
   before_action :set_services, only: %i[show edit update destroy]
 
   def index
-    @user = User.find(params[:user_id])
     @reviews = @user.reviews
   end
   def edit

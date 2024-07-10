@@ -6,26 +6,20 @@ Rails.application.routes.draw do
     member do
       get 'chef', to: 'users#chef'
     end
-
     resources :reviews, only: [:index]
     resources :services, only: %i[index edit update]
   end
 
-  resources :bookings do
+  resources :bookings, only: [:index] do
     collection do
       get 'past', to: 'bookings#past'
     end
-    resources :services, only: [:index] do
-      resources :bookings, only: %i[new create]
-    end
-    resources :bookings, only: [:index]
+    resources :services, only: [:index]
   end
 
-  resources :services, except: [:index] do
-    resources :services, except: %i[index edit update] do
-      resources :bookings, only: %i[new create]
-      resources :reviews, only: %i[create new]
-    end
+  resources :services, except: %i[index edit update] do
+    resources :bookings, only: %i[new create]
+    resources :reviews, only: %i[create new index]
   end
 
   resources :bookings, only: %i[index show edit update destroy] do
