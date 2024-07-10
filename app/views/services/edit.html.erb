@@ -9,3 +9,22 @@
     <%= f.submit %>
   <% end %>
 </div>
+
+<h1><%= @service.name %></h1>
+<p><%= @service.description %></p>
+<p>Price: <%= @service.price %></p>
+<%= link_to 'Edit', edit_service_path(@service) %> |
+<%= link_to 'Back', services_path %>
+
+<h2>Reviews</h2>
+<ul>
+  <% @service.reviews.each do |review| %>
+    <li>
+      <strong>Rating:</strong> <%= review.rating %><br>
+      <strong>Comment:</strong> <%= review.comment %><br>
+      <%= link_to 'Edit', edit_service_review_path(@service, review) %> |
+      <%= link_to 'Destroy', service_review_path(@service, review), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'New Review', new_service_review_path(@service) %>
