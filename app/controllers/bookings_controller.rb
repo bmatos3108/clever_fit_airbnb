@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def past
-    # @bookings = Booking.where('create_date < ?' Date.today)
+    @bookings = Booking.where('end_date < ?', Date.today)
   end
 
   def new
@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking = @service.bookings.new(booking_params)
     @booking.user = current_user
     if @booking.save
-      redirect_to user_bookings_path, notice: 'Booking was successfully made.'
+      redirect_to user_path(@booking.user), notice: 'Booking was successfully made.'
     else
       flash[:alert] = 'There was an error submitting your booking.'
       render :new, status: :unprocessable_entity
