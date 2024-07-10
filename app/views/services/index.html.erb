@@ -1,0 +1,17 @@
+<h1 class="mt-3">My services</h1>
+  <div class="container-sm mt-4 bg-white">
+
+  <% @services.each do |service| %>
+    <div class="card m-3" style="width: 18rem;">
+      <img src="https://www.olivetomato.com/wp-content/uploads/2022/06/Greek-Spaghetti-with-Ground-Beef-Sauce-recipe-%E2%80%93-Makaronia-me-Kima-2-900x600.jpeg" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title"><%= service.name %></h5>
+        <p class="card-text text-start"><%= service.description_menu %></p>
+        <div class="d-flex justify-content-between align-item-center" style="height:30px">
+          <p class="card-text mb-0 d-flex align-item-center fa-solid fa-euro-sign"><%= service.price %></p>
+          <%= link_to 'Edit', edit_user_service_path(@user, service), class: 'btn  btn-sm btn-dark border rounded' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
