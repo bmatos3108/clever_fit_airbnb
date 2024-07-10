@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :bookings do
     collection do
       get 'past', to: 'bookings#past'
+    end
     resources :services, only: [:index] do
       resources :bookings, only: %i[new create]
     end
@@ -20,9 +21,8 @@ Rails.application.routes.draw do
   end
 
   resources :services, except: [:index] do
-    resources :reviews, only: %i[create new] # Nested route to show and create reviews for a service
+    resources :reviews, only: %i[create new]
   end
-
 
   resources :bookings, only: %i[index show edit update destroy] do
     collection do
@@ -31,5 +31,4 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: %i[show edit update destroy]
- end
 end
