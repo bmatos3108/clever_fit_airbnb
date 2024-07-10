@@ -1,15 +1,13 @@
-<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+<div class="container">
+  <h1><strong><%= @service.name %></strong></h1>
+  <div class="image-placeholder"><p>*photo place holder*</p></div>
   <div>
-    <h1><strong><%= @service.name %></strong></h1>
     <p><strong>Description:</strong> <%= @service.description_menu %></p>
     <p><strong>Address:</strong> <%= @service.address %></p>
     <p><strong>Price:</strong> $<%= @service.price %></p>
-    <%#= link_to 'Book This Service', service_bookings_path(@service), class: 'btn btn-primary' %>
-    <h2>Reviews</h2>
+    <%= link_to 'Book This Service', new_service_booking_path(@service), class: 'btn btn-primary' %>
     <%# <%= render 'reviews/reviews', reviews: @reviews %>
   </div>
+    <h2>Reviews</h2>
   <%#= link_to 'Add Review', new_service_review_path(@service), class: 'btn btn-primary' %>
 </div>
-
-
-
