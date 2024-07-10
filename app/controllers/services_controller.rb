@@ -2,9 +2,8 @@ class ServicesController < ApplicationController
   before_action :set_service, only: %i[show edit update]
 
   def show
-
-   # @reviews = @service.reviews
     @bookings = @service.bookings
+   # @reviews = @service.reviews
   end
 
   def edit; end
