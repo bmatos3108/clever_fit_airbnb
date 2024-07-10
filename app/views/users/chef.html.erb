@@ -1,0 +1,20 @@
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="border rounded-custom p-4 text-center bg-white" style="height: 500px; width: 600px; border-radius: 20px; border: 1px solid #ced4da; padding: 15px;">
+    <h2 class="mt-4 mb-5">Welcome Chef !</h2>
+    <div class="d-flex align-items-center m-3 mb-2 border rounded-3 py-2 px-4 bg-light mx-auto" style="width:400px">
+      <div class="border rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP_7GZ24yA6EdZ59H0ai0Itp4dwNu3FdeVsg&s'); background-size: cover; background-position: center;">
+        <%#= We have to put a user profile photo here %>
+      </div>
+      <div class="flex-grow-1">
+        <%= @user.email%>
+      </div>
+    </div>
+    <div class="mx-auto" style="width: 350px">
+      <p class="text-center m-1 text-secondary"> ___ </p>
+      <div class="btn px-3 mt-3 shadow-sm rounded text-center" style="width: 90%;"><%= link_to "Create a new service", new_service_path, class:"text-decoration-none text-black" %></div>
+      <div class="btn px-3 mt-3 shadow-sm rounded text-center" style="width: 90%;"><%= link_to "See all my services", services_path, class:"text-decoration-none text-black" %></div>
+      <div class="btn px-3 mt-3 shadow-sm rounded text-center" style="width: 90%;"><%= link_to "See all booking requests", bookings_path, class:"text-decoration-none text-black" %></div>
+      <div class="btn px-3 mt-3 shadow-sm rounded text-center" style="width: 90%;"><%= link_to "Switch to user mode", user_path(@user), class:"text-decoration-none text-black" %></div>
+    </div>
+  </div>
+</div>

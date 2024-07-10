@@ -1,13 +1,20 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  #resources :users, only: [:show, :index] do
-   # resources :reviews, only: [:index]  # Nested route to show reviews for a user
-    #resources :services, only: [:index] # Nested route to show services created by a user
-  #end
+  resources :users, only: [:show, :index] do
+    member do
+      get 'chef', to: 'users#chef'
+    end
+    resources :reviews, only: [:index]  # Nested route to show reviews for a user
+    resources :services, only: [:index] # Nested route to show services created by a user
+  end
 
   # Resources for Bookings
-  resources :bookings
+  resources :bookings do
+    collection do
+      get 'past', to: 'bookings#past'
+    end
+  end
 
   # Resources for Services
   resources :services do
@@ -17,4 +24,4 @@ Rails.application.routes.draw do
   # Resources for Reviews
   resources :reviews, only: [:show, :edit, :update, :destroy]
 
- end
+end
