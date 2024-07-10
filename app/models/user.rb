@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :services
   has_many :bookings
+  has_many :reviews, through: :services
 end

@@ -7,6 +7,13 @@ Rails.application.routes.draw do
       get 'chef', to: 'users#chef'
     end
     resources :reviews, only: [:index]
+    resources :services, only: [:index]
+  end
+
+  resources :bookings do
+    collection do
+      get 'past', to: 'bookings#past'
+    end
     resources :services, only: [:index] do
       resources :bookings, only: %i[new create]
     end
