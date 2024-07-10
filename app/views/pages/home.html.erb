@@ -9,14 +9,21 @@
         </div>
     </header>
 
-    <div class="container">
-      <% @services.each do |service| %>
-        <div class="square">
-          <%= link_to service_path(service) do %>
-              <div class="image" style="background-image: url(https://media.istockphoto.com/id/1389857295/pt/foto/african-american-woman-bakers-looking-at-camera-chef-baker-in-a-chef-dress-and-hat-cooking.jpg?s=612x612&w=0&k=20&c=cMGIngH5ou32_Lc3Q6yyokR_fhVXQEbdYDcFicoVHA4=);"></div>
+<div class="container-lg">
+  <% @services.each_slice(3) do |services_row| %>
+    <div class="row my-3">
+      <% services_row.each do |service| %>
+        <div class="col col-4">
+          <div class="square">
+            <%= link_to service_path(service) do %>
+              <% service.images.each_with_index do |image, index| %>
+                <div class="image" style="background-image: url(<%= url_for(image) %>);<%= index > 0 ? ' display: none;' : '' %>"></div>
+              <% end %>
               <div class="text"><%= service.name %></div>
-              </a>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
+  <% end %>
+</div>
