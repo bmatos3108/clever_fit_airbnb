@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
 
     resources :reviews, only: [:index]
-    resources :services, only: [:index]
+    resources :services, only: %i[index edit update]
   end
 
   resources :bookings do
@@ -22,7 +22,10 @@ Rails.application.routes.draw do
   end
 
   resources :services, except: [:index] do
-    resources :reviews, only: %i[create new]
+    resources :services, except: %i[index edit update] do
+      resources :bookings, only: %i[new create]
+      resources :reviews, only: %i[create new]
+    end
   end
 
   resources :bookings, only: %i[index show edit update destroy] do
