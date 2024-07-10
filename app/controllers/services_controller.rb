@@ -5,5 +5,6 @@ class ServicesController < ApplicationController
   end
 
   def update
+    @service = Service.find(params[:id])
   end
 end
