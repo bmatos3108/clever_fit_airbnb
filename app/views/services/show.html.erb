@@ -1,3 +1,9 @@
 <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
-<div><h2 class="mt-4 mb-5">The cuisine</h2></div>
+  <div>
+    <h1><%= @service.name %></h1>
+    <p><%= @service.description_menu %></p>
+    <h2>Reviews</h2>
+    
+    <%#= render 'reviews/reviews', reviews: @reviews %>
+  </div>
 </div>
