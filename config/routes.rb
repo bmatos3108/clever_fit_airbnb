@@ -15,11 +15,12 @@ Rails.application.routes.draw do
       get 'past', to: 'bookings#past'
     end
     resources :services, only: [:index]
+    resources :reviews, only: %i[create new]
   end
 
   resources :services, except: %i[index edit update] do
     resources :bookings, only: %i[new create]
-    resources :reviews, only: %i[create new index]
+    resources :reviews, only: %i[index]
   end
 
   resources :bookings, only: %i[index show edit update destroy] do
