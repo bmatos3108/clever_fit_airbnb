@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[show index] do
     member do
       get 'chef', to: 'users#chef'
+      get 'bookings', to: 'users#bookings'
     end
     resources :reviews, only: [:index]
     resources :services, only: %i[index edit update]
