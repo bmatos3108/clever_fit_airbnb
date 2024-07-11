@@ -3,6 +3,10 @@ class BookingsController < ApplicationController
     @bookings = Booking.where('end_date < ?', Date.today)
   end
 
+  def index
+    @bookings = current_user.bookings
+  end
+
   def new
     @service = Service.find(params[:service_id])
     @booking = Booking.new
