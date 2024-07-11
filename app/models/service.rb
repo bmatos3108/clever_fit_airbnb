@@ -13,6 +13,6 @@ class Service < ApplicationRecord
 
   # Validations
   validates :name, presence: true
-  validates :description, presence: true
-  validates :price, numericality: { greater_than_or_equal_to: 0} # Makes sure it can't be a negative number
+  validates :description_menu, presence: true
+  validates :price, numericality: { greater_than_or_equal_to: 0 } # Makes sure it can't be a negative number
 end
