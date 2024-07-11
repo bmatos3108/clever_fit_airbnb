@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       get 'chef', to: 'users#chef'
     end
     resources :reviews, only: [:index]
-    resources :services, only: %i[index edit update]
+    resources :services, only: %i[index edit update new create]
   end
 
   resources :bookings, only: [:index] do
