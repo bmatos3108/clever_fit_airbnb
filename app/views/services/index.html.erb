@@ -16,27 +16,26 @@
 </header>
 
 <div class="container-lg">
-  <% @services.each_slice(3) do |services_row| %>
-    <div class="row my-3">
-      <% services_row.each do |service| %>
-        <div class="col col-4">
-          <div class="square">
-            <%= link_to service_path(service) do %>
-              <% service.images.each_with_index do |image, index| %>
-                <div class="image" style="background-image: url(<%= url_for(image) %>);<%= index > 0 ? ' display: none;' : '' %>"></div>
+  <% if @services.any? %>
+    <% @services.each_slice(3) do |services_row| %>
+      <div class="row my-3">
+        <% services_row.each do |service| %>
+          <div class="col col-4">
+            <div class="square">
+              <%= link_to service_path(service) do %>
+                <% service.images.each_with_index do |image, index| %>
+                  <div class="image" style="background-image: url(<%= url_for(image) %>);<%= index > 0 ? ' display: none;' : '' %>"></div>
+                <% end %>
+                <div class="text"><%= service.name %></div>
               <% end %>
-              <div class="text"><%= service.name %></div>
-            <% end %>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-<<<<<<< HEAD
-  <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+
+  <% else %>
+   <p class="text-align-center mt-5"> You do not have service yet. </p>
+  <% end%>
 </div>
-=======
-  </div>
-<% else %>
-  <p class="text-align-center mt-5"> You do not have service yet. </p>
-<% end%>
->>>>>>> master
