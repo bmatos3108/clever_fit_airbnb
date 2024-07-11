@@ -11,15 +11,17 @@ Rails.application.routes.draw do
       get 'myservices', to: 'users#myservices'
     end
     resources :reviews, only: [:index]
-    resources :services, only: %i[index edit update new create]
+    resources :services, only: %i[index edit update new create] do
+      member do
+        get 'booking_requests', to: 'services#booking_requests'
+      end
+    end
   end
 
-  resources :bookings, only: [:index] do
+  resources :bookings, only: %i[index show edit update destroy] do
     collection do
       get 'past', to: 'bookings#past'
     end
-    resources :services, only: [:index]
-    resources :reviews, only: %i[create new]
   end
 
   resources :services, except: %i[edit update] do

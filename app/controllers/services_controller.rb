@@ -9,6 +9,14 @@ class ServicesController < ApplicationController
     end
   end
 
+  #def booking_requests
+    #if current_user == @service.user 
+      #@bookings = @service.bookings
+    #else
+      #redirect_to root_path, notice: "You are not authorized to view this page."
+    #end
+  #end
+
   def show
     @reviews = @service.bookings.flat_map(&:reviews)
   end
