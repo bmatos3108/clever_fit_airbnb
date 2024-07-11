@@ -1,6 +1,13 @@
 class ServicesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_service, only: %i[show edit update]
+
+  def index
+    @services = Service.all
+    if params[:query].present?
+      @services = @services.search_by_name_and_address(params[:query])
+    end
+  end
   def show
     @reviews = @service.bookings.flat_map(&:reviews)
   end
