@@ -13,4 +13,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @bookings = @user.bookings
   end
+
+  def myservices
+    @user = current_user
+    @services = @user.services
+  end
 end
