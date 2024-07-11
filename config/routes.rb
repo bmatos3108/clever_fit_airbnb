@@ -11,10 +11,7 @@ Rails.application.routes.draw do
       get 'myservices', to: 'users#myservices'
     end
     resources :reviews, only: [:index]
-    resources :services, only: %i[index edit update]
-   # collection do
-     # get 'search'
-    #end
+    resources :services, only: %i[index edit update new create]
   end
 
   resources :bookings, only: [:index] do
