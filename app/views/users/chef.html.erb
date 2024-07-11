@@ -12,7 +12,7 @@
     <div class="mx-auto" style="width: 350px">
       <p class="text-center m-1 text-secondary"> ___ </p>
       <div class="btn px-3 mt-3 shadow-sm rounded text-center" style="width: 90%;"><%= link_to "Create a new service", new_service_path, class:"text-decoration-none text-black" %></div>
-      <div class="btn px-3 mt-3 shadow-sm rounded text-center" style="width: 90%;"><%= link_to "See all my services", user_services_path(@user), class:"text-decoration-none text-black" %></div>
+      <div class="btn px-3 mt-3 shadow-sm rounded text-center" style="width: 90%;"><%= link_to "See all my services", myservices_users_path(@user), class:"text-decoration-none text-black" %></div>
       <div class="btn px-3 mt-3 shadow-sm rounded text-center" style="width: 90%;"><%= link_to "See all booking requests", bookings_path, class:"text-decoration-none text-black" %></div>
       <div class="btn px-3 mt-3 shadow-sm rounded text-center" style="width: 90%;"><%= link_to "Switch to user mode", user_path(@user), class:"text-decoration-none text-black" %></div>
     </div>
