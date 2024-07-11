@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
 
   def show
+    toggle_chef_mode
     @user = User.find(params[:id])
   end
 
   def chef
+    toggle_chef_mode
     @user = User.find(params[:id])
     # @user.role = "chef"
   end
