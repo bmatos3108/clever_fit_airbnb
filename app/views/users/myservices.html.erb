@@ -11,7 +11,7 @@
               <p class="card-text text-start mb-2"><%= service.description_menu %></p>
               <div class="mt-auto d-flex justify-content-between align-items-center" style="height:30px">
                 <p class="card-text mb-0 d-flex align-items-center fa-solid fa-euro-sign"><%= service.price %></p>
-                <%= link_to 'Edit', edit_user_service_path(@user, service), class: 'btn btn-sm btn-dark border rounded' %>
+                <%= link_to 'Edit', edit_service_path(service), class: 'btn btn-sm btn-dark border rounded' %>
               </div>
             </div>
           </div>

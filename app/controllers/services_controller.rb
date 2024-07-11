@@ -10,7 +10,7 @@ class ServicesController < ApplicationController
   end
 
   #def booking_requests
-    #if current_user == @service.user 
+    #if current_user == @service.user
       #@bookings = @service.bookings
     #else
       #redirect_to root_path, notice: "You are not authorized to view this page."
@@ -18,14 +18,16 @@ class ServicesController < ApplicationController
   #end
 
   def show
-    @reviews = @service.bookings.flat_map(&:reviews)
+    @bookings = @service.bookings
+    # @reviews = @service.bookings.flat_map(&:reviews)
+    # raise
   end
 
   def edit; end
 
   def update
     if @service.update(service_params)
-      redirect_to user_services_path(@service.user_id), notice: 'Service was successfully updated.'
+      redirect_to service_path(@service), notice: 'Service was successfully updated.'
     else
       render :edit, alert: 'There was an error updating the service.'
     end
