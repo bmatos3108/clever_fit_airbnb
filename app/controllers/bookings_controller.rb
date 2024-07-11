@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def past
-    @bookings = Booking.where('end_date < ?', Date.today)
+    @past_bookings = current_user.bookings.where('end_date < ?', Date.today)
   end
 
   def index
@@ -29,4 +29,5 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :service_id)
   end
+
 end
