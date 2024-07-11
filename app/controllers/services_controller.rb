@@ -8,6 +8,7 @@ class ServicesController < ApplicationController
       @services = @services.search_by_name_and_address(params[:query])
     end
   end
+
   def show
     @reviews = @service.bookings.flat_map(&:reviews)
   end
