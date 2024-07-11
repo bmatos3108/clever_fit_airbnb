@@ -26,8 +26,7 @@
       <div class="navbar-right">
         <% if user_signed_in? %>
           <% if session[:chef_mode] %>
-          <p>test</p>
-          <%# <%= link_to 'Profile', chef_user_path(current_user.id), class: 'btn btn-secondary rounded-btn' %>
+            <%= link_to 'Profile', chef_user_path(current_user), class: 'btn btn-secondary rounded-btn' %>
           <% else %>
           <%= link_to 'Profile', user_path(current_user), class: 'btn btn-secondary rounded-btn' %>
           <% end %>
