@@ -1,0 +1,30 @@
+html, body {
+  height: 100%;
+}
+
+header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.container-lg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.brand h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.brand p {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  width: 100%;
+}
