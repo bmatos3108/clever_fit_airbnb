@@ -8,9 +8,8 @@ class ServicesController < ApplicationController
 
   def show
   @service = Service.find(params[:id])
-  @reviews = @service.bookings.flat_map(&:reviews)
+  @reviews = @service.bookings.map(&:reviews).flatten
   end
-
 
   def edit; end
 
