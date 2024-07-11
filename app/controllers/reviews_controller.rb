@@ -1,10 +1,10 @@
 class ReviewsController < ApplicationController
-  before_action :set_booking, only: %i[new create edit destroy]
+  before_action :set_booking, only: %i[new edit destroy]
 
   def new
     @service = Service.find(params[:service_id])
     @review = @booking.reviews.build
-    @review.user_id = current_user.id
+    @review.booking.user_id = current_user.id
   end
 
   def create
@@ -46,6 +46,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:rating, :comment, :service)
+    params.require(:review).permit(:rating, :comment)
   end
 end
