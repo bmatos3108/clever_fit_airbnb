@@ -1,11 +1,5 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[show edit update]
-
-  def index
-    @user = User.find(params[:user_id])
-    @services = @user.services
-  end
-
   def show
   @service = Service.find(params[:id])
   @reviews = @service.bookings.flat_map(&:reviews)
