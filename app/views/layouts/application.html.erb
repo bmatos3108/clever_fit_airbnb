@@ -12,25 +12,25 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <div class="container-fluid">
+    <nav class="navbar navbar-expand-sm navbar-light bg-white shadow-sm">
+    <div class="container-fluid mx-3">
       <!-- Logo on the left -->
-      <%= link_to root_path, class: 'navbar-brand' do %>
-        <%= image_tag 'https://cdn5.vectorstock.com/i/1000x1000/22/08/chef-logo-template-vector-30172208.jpg', alt: 'Chef Airbnb Logo', width: 50, height: 50 %>
+      <%= link_to root_path, class: 'navbar-brand navbar-dark' do %>
+        <%= image_tag 'https://img.freepik.com/premium-vector/cartoon-chef-with-red-circle-background_17812-100.jpg', alt: 'Chef Airbnb Logo', width: 50, height: 50 %>
       <% end %>
       <!-- "Chef Airbnb" text in the middle -->
-      <div class="navbar-text mx-auto">
-        <h1 class="green-small-text">Chef Airbnb</h1>
+      <div class="navbar-text p-0">
+        <h1 class="fs-3 fw-bold mb-0">Chef Airbnb</h1>
       </div>
       <!-- Upload picture or sign-in/sign-out button on the right -->
       <div class="navbar-right">
         <% if user_signed_in? %>
           <% if session[:chef_mode] %>
-            <%= link_to 'Profile', chef_user_path(current_user), class: 'btn btn-secondary rounded-btn' %>
+            <%= link_to 'Profile', chef_user_path(current_user), class: 'btn btn-dark rounded-5' %>
           <% else %>
-            <%= link_to 'Profile', user_path(current_user), class: 'btn btn-secondary rounded-btn' %>
+          <%= link_to 'Profile', user_path(current_user), class: 'btn btn-dark rounded-5' %>
           <% end %>
-          <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-danger' %>
+          <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-outline-danger rounded-5' %>
         <% else %>
           <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary' %>
         <% end %>

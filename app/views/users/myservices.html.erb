@@ -5,7 +5,7 @@
       <% @services.each do |service| %>
         <div class="col-md-3 d-flex align-items-stretch">
           <div class="card m-3 flex-fill" style="width: 18rem;">
-            <img src="https://www.olivetomato.com/wp-content/uploads/2022/06/Greek-Spaghetti-with-Ground-Beef-Sauce-recipe-%E2%80%93-Makaronia-me-Kima-2-900x600.jpeg" class="card-img-top">
+            <img src="<%= service.image_url %>" class="card-img-top">
             <div class="card-body d-flex flex-column">
               <h5 class="card-title"><%= service.name %></h5>
               <p class="card-text text-start mb-2"><%= service.description_menu %></p>
