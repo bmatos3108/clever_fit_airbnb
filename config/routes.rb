@@ -16,10 +16,11 @@ Rails.application.routes.draw do
         patch 'confirm', to: 'bookings#confirm'
       end
     end
-    resources :reviews, only: %i[index create new]
+
   end
 
   resources :bookings, only: %i[index show edit update destroy] do
+    resources :reviews, only: %i[index create new]
     collection do
       get 'past', to: 'bookings#past'
     end
