@@ -11,7 +11,7 @@
               <p class="card-text text-start text-secondary"><%= booking.start_date %> ~  <%= booking.end_date %></p>
             </div>
             <div class="d-flex justify-content-start my-3 ml-3">
-              <%= link_to 'Add Review', new_service_review_path(booking.service), class: 'btn btn-dark' %>
+              <%= link_to 'Add Review', new_booking_review_path(booking.service), class: 'btn btn-dark' %>
             </div>
           </div>
         <% end %>

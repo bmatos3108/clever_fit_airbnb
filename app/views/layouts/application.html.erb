@@ -28,7 +28,11 @@
           <% if session[:chef_mode] %>
             <%= link_to 'Profile', chef_user_path(current_user), class: 'btn btn-dark rounded-5' %>
           <% else %>
+<<<<<<< HEAD
           <%= link_to 'Profile', user_path(current_user), class: 'btn btn-dark rounded-5' %>
+=======
+            <%= link_to 'Profile', user_path(current_user), class: 'btn btn-secondary rounded-btn' %>
+>>>>>>> master
           <% end %>
           <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-outline-danger rounded-5' %>
         <% else %>

@@ -88,7 +88,8 @@ past_bookings = Booking.where('end_date < ?', Date.today)
   Review.create!(
     comment: Faker::Lorem.paragraph,
     rating: rand(0.0..5.0).round(1),
-    booking: booking
+    booking: booking,
+    user: User.all.sample
   )
 end
 
