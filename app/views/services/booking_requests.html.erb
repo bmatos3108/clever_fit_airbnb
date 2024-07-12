@@ -1,0 +1,17 @@
+<h1>Booking Requests for <%= @service.name %></h1>
+
+<% if @bookings.any? %>
+  <ul>
+    <% @bookings.each do |booking| %>
+      <li>
+        <strong>Booking ID:</strong> <%= booking.id %><br>
+        <strong>User:</strong> <%= booking.user.name %><br>
+        <strong>Date:</strong> <%= booking.date %><br>
+        <strong>Status:</strong> <%= booking.status %><br>
+        <%= link_to 'View Booking', booking_path(booking) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No booking requests found.</p>
+<% end %>

@@ -3,14 +3,17 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: %i[edit update destroy show]
   before_action :correct_user, only: %i[edit update destroy]
   def new
+    @service = Service.find(params[:service_id])
     @review = @booking.reviews.build
+    @review.booking.user_id = current_user.id
+    # raise
   end
 
   def create
     @booking = Booking.find(params[:booking_id])
     @review = @booking.reviews.build(review_params)
-    @review.user = current_user
-
+    @review.booking.user = current_user
+    # raise
     if @review.save
       redirect_to service_path(@booking.service), notice: 'Review was successfully created.'
     else
@@ -44,7 +47,7 @@ class ReviewsController < ApplicationController
   private
 
   def set_booking
-    @booking = Booking.find(params[:booking_id])
+    @booking = Booking.find_by(service: params[:service_id], user: current_user)
   end
 
   def review_params
