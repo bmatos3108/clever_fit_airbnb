@@ -5,12 +5,14 @@ class ReviewsController < ApplicationController
     @service = Service.find(params[:service_id])
     @review = @booking.reviews.build
     @review.booking.user_id = current_user.id
+    # raise
   end
 
   def create
     @booking = Booking.find(params[:booking_id])
     @review = @booking.reviews.build(review_params)
     @review.booking.user = current_user
+    # raise
     if @review.save
       redirect_to service_path(@booking.service), notice: 'Review was successfully created.'
     else
