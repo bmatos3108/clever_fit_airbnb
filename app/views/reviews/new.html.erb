@@ -1,3 +1,4 @@
+<div class="bookings-container">
 <div class="container-lg">
   <h3 class="text-start mt-5">Leave your review!</h3>
 
@@ -6,12 +7,12 @@
 
     <div class="form-inputs">
       <%= form.input :rating, label: "Rating", collection: 1..5, include_blank: false %>
-      <%= form.input :comment, as: :text, label: "Comment" %>
+      <%= form.input :comment, as: :text, label: "Comment", placeholder: "Such a lovely meal!", input_html: { class: "italic-placeholder" } %>
     </div>
 
     <div class="form-actions">
-      <%= form.button :submit, "Submit Review", class: "btn btn-dark" %>
+      <%= form.button :submit, "Submit Review", class: "btn btn-dark", id: "sub_button" %>
     </div>
   <% end %>
 </div>
-
+</div>
