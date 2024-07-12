@@ -13,9 +13,9 @@ class UsersController < ApplicationController
   end
 
   def bookings
-    toggle_chef_mode
-    @user = User.find(params[:id])
-    @bookings = @user.bookings
+    # toggle_chef_mode
+    @user = current_user
+    @bookings = @user.reload.bookings
     @services = Service.where(user: current_user)
     @requests = Booking.where(service: @services)
     # raise
@@ -28,11 +28,11 @@ class UsersController < ApplicationController
 
   private
 
-  def toggle_chef_mode
-    if session[:chef_mode]
-      session[:chef_mode] = false
-    else
-      session[:chef_mode] = true
-    end
-  end
+  # def toggle_chef_mode
+  #   if session[:chef_mode]
+  #     session[:chef_mode] = false
+  #   else
+  #     session[:chef_mode] = true
+  #   end
+  # end
 end
