@@ -26,6 +26,31 @@
   text-align: left;
 }
 
+.text-start {
+  color: #FF5A5F;
+}
+
+.review {
+  background-color: rgb(203, 201, 201)
+}
+
+.italic-placeholder::placeholder {
+  font-style: italic;
+}
+
+#sub_button {
+  border-color: #FF5A5F;
+  background-color: #FF5A5F;
+}
+
+.bookings-container {
+  background-color: #ffffff; // Set the background color to white
+  padding: 20px; // Optional: Add some padding for better spacing
+  border-radius: 5px; // Optional: Add border radius for smoother edges
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Optional: Add a subtle shadow for depth
+  min-height: 90vh
+}
+
   /* styling for the buttons when it's coded - Just remove this line
 
 .btn {
