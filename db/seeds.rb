@@ -16,7 +16,7 @@ User.destroy_all
 
 # My Creation of Instances
 
-30.times do
+5.times do
   User.create!(
     email: Faker::Internet.unique.email,
     password: 'password',
@@ -29,7 +29,7 @@ puts "Users created"
 users = User.all
 
 # Define image URLs
-image_urls = [
+images = [
   'https://cdn.prod.website-files.com/655f92d91d173d2aa1084856/65649e33431fc94dd613d475_Portraits%20holding%20dish%20-%20BFF%20046.webp',
   'https://img.bestrecipes.com.au/iyddCRce/br/2019/02/1980-crunchy-chicken-twisties-drumsticks-951509-1.jpg',
   'https://media.cnn.com/api/v1/images/stellar/prod/160929101749-essential-spanish-dish-paella-phaidon.jpg?q=w_1900,h_1069,x_0,y_0,c_fill',
@@ -38,26 +38,27 @@ image_urls = [
 ]
 
 # Create Services
-150.times do
-  service = Service.create!(
+12.times do
+  Service.create!(
     name: Faker::Food.dish,
     address: Faker::Address.full_address,
     description_menu: Faker::Food.description,
     available: true,
     price: rand(500..1500),
-    user: users.sample  # Assign a random user to each service
+    user: users.sample,
+    image_url: images.sample  # Assign a random user to each service
   )
 
   # Attach random images
-  rand(3..5).times do
-    image_url = image_urls.sample
-    begin
-      image_io = URI.open(image_url)
-      service.images.attach(io: image_io, filename: "#{service.name.parameterize}-image.jpg")
-    rescue OpenURI::HTTPError => e
-      puts "Error fetching image from #{image_url}: #{e.message}"
-    end
-  end
+  # rand(3..5).times do
+  #   image_url = image_urls.sample
+  #   begin
+  #     image_io = URI.open(image_url)
+  #     service.images.attach(io: image_io, filename: "#{service.name.parameterize}-image.jpg")
+  #   rescue OpenURI::HTTPError => e
+  #     puts "Error fetching image from #{image_url}: #{e.message}"
+  #   end
+  # end
 end
 
 puts "Service created"
@@ -65,7 +66,7 @@ puts "Service created"
 services = Service.all
 
 # Create Bookings
-120.times do
+12.times do
   start_date = Faker::Date.between(from: 1.year.ago, to: 1.year.from_now)
   end_date = start_date + rand(1..10).days
 
@@ -83,7 +84,7 @@ puts "Booking Created"
 past_bookings = Booking.where('end_date < ?', Date.today)
 
 # Create Reviews
-100.times do
+10.times do
   booking = past_bookings.sample
   Review.create!(
     comment: Faker::Lorem.paragraph,
