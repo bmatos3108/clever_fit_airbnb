@@ -1,37 +1,26 @@
-<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+<div class="container">
   <div>
     <h1><strong><%= @service.name %></strong></h1>
+    <img src="<%= @service.image_url %>" class="image-top">
     <p><strong>Description:</strong> <%= @service.description_menu %></p>
     <p><strong>Address:</strong> <%= @service.address %></p>
     <p><strong>Price:</strong> $<%= @service.price %></p>
-    <%= link_to 'Book This Service',  new_service_booking_path(@service), class: 'btn btn-dark' %>
+    <%= link_to 'Book This Service', new_service_booking_path(@service), class: 'btn btn-dark' %>
   </div>
 
-<div class="container-lg mx-5 px-5">
-  <h3 class="text-start mt-5">Reviews</h3>
+  <div class="container-lg mx-5 px-5">
+    <h3 class="text-start mt-5">Reviews</h3>
 
-  <% all_reviews = @bookings.map(&:reviews).flatten %>
-  <% if all_reviews.any? %>
-    <% all_reviews.each do |review| %>
-      <div class="review border rounded-5 px-4 py-2 my-3">
-        <p><strong>Rating:</strong> <%= review.rating %></p>
-        <p><strong>Comment:</strong> <%= review.comment %></p>
-      </div>
+    <% all_reviews = @bookings.map(&:reviews).flatten %>
+    <% if all_reviews.any? %>
+      <% all_reviews.each do |review| %>
+        <div class="review border rounded-5 px-4 py-2 my-3">
+          <p><strong>Rating:</strong> <%= review.rating %></p>
+          <p><strong>Comment:</strong> <%= review.comment %></p>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="mt-3"><strong>No reviews yet</strong></p>
     <% end %>
-  <% else %>
-    <p class="mt-3"><strong>No reviews yet</strong></p>
-  <% end %>
-
-  <%# if @reviews.any? %>
-    <%# @reviews.each do |review| %>
-      <%# <div class="review border rounded-5 px-4 py-2 my-3"> %>
-        <%# <p><strong>Rating:</strong> <%= review.rating %></p>
-        <%# <p><strong>Comment:</strong> <%= review.comment %></p>
-      <%# </div> %>
-    <%# end %>
-  <%# else %>
-    <%# <p class="mt-3"><strong>No reviews yet</strong></p> %>
-  <%# end %>
-
-</div>
+  </div>
 </div>

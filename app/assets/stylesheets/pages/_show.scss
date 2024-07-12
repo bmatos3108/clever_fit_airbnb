@@ -1,3 +1,8 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -8,23 +13,22 @@
   text-align: center;
   position: relative;
   width: 100%;
-  top: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
-/* Grey box is placeholder for the image */
-.image-placeholder {
-  width: 50%;
-  height: 35vh;
-  background-color: #A9A9A9;
-  margin-bottom: 20px;
+.container div {
+  width: 100%;
+  max-width: 900px;
 }
 
 .container p {
   margin: 5px 0;
   font-size: 1.2em;
   text-align: left;
+  word-wrap: break-word;
 }
+
 
 .text-start {
   color: #FF5A5F;
@@ -74,6 +78,14 @@
 .btn-primary:hover {
   background-color: #0056b3;
   border-color: #004085;
-}
 
-And remove this one !!!!*/
+.image-top {
+  max-width: 75%;
+  height: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
