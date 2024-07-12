@@ -3,31 +3,18 @@ class ServicesController < ApplicationController
   before_action :set_service, only: %i[show edit update]
 
   def index
-    @services = Service.all
-    if params[:query].present?
-      @services = @services.search_by_name_and_address(params[:query])
-    end
+    @services = params[:query].present? ? Service.search_by_name_and_address(params[:query]) : Service.all
   end
-
-  #def booking_requests
-    #if current_user == @service.user
-      #@bookings = @service.bookings
-    #else
-      #redirect_to root_path, notice: "You are not authorized to view this page."
-    #end
-  #end
 
   def show
     @bookings = @service.bookings
-    # @reviews = @service.bookings.flat_map(&:reviews)
-    # raise
   end
 
   def edit; end
 
   def update
     if @service.update(service_params)
-      redirect_to service_path(@service), notice: 'Service was successfully updated.'
+      redirect_to @service, notice: 'Service was successfully updated.'
     else
       render :edit, alert: 'There was an error updating the service.'
     end
@@ -40,9 +27,9 @@ class ServicesController < ApplicationController
   def create
     @service = current_user.services.build(service_params)
     if @service.save
-      redirect_to @service, notion: 'New Service Created!'
+      redirect_to @service, notice: 'New Service Created!'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
