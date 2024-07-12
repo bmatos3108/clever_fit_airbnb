@@ -48,12 +48,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bookings, only: %i[index edit update destroy] do
-    collection do
-      get 'past', to: 'bookings#past'
-    end
-  end
-
   resources :services do
     resources :bookings, only: %i[new create index] do
       member do
