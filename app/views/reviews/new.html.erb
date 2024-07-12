@@ -1,7 +1,7 @@
 <div class="container-lg">
-  <h3 class="text-start mt-5">Leave a Review</h3>
+  <h3 class="text-start mt-5">Leave your review!</h3>
 
-  <%= simple_form_for [@booking, @review], url: new_service_review_path(@service) do |form| %>
+  <%= simple_form_for [@booking, @review] do |form| %>
     <%= form.error_notification %>
 
     <div class="form-inputs">
@@ -13,4 +13,5 @@
       <%= form.button :submit, "Submit Review", class: "btn btn-dark" %>
     </div>
   <% end %>
+
 </div>
