@@ -44,7 +44,9 @@ html, body {
 }
 
 .review {
-  background-color: rgb(203, 201, 201)
+  background-color: rgb(203, 201, 201);
+  max-height: 50vh;
+  overflow: auto;
 }
 
 .italic-placeholder::placeholder {
