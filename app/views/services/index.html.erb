@@ -26,9 +26,9 @@
           <div class="col col-4">
             <div class="square">
               <%= link_to service_path(service) do %>
-                <% service.images.each_with_index do |image, index| %>
-                  <div class="image" style="background-image: url(<%= url_for(image) %>);<%= index > 0 ? ' display: none;' : '' %>"></div>
-                <% end %>
+                <%# service.images.each_with_index do |image, index| %>
+                <div class="image" style="background-image: url(<%= service.image_url %>)"></div>
+                <%# end %>
                 <div class="text"><%= service.name %></div>
               <% end %>
             </div>
