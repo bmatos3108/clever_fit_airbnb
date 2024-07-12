@@ -46,6 +46,7 @@ image_urls = [
     available: true,
     price: rand(500..1500),
     user: users.sample  # Assign a random user to each service
+    image_urls =
   )
 
   # Attach random images
