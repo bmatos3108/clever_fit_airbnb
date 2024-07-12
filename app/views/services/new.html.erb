@@ -2,7 +2,7 @@
 
 <%= simple_form_for(@service) do |form| %>
   <% if @service.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(@service.errors.count, "error") %> Prohibited this service from being saved</h2>
       <ul>
         <% @service.errors.full_messages.each do |message| %>
@@ -12,24 +12,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <div class="form-container mt-5">
+    <div class="card">
+      <div class="card-body">
+        <div class="field mb-3">
+          <%= form.label :name, class: 'form-label' %>
+          <%= form.text_field :name, class: 'form-control' %>
+        </div>
 
-  <div class="field">
-    <%= form.label :description_menu %>
-    <%= form.text_field :description_menu %>
-  </div>
+        <div class="field mb-3">
+          <%= form.label :description_menu, class: 'form-label' %>
+          <%= form.text_field :description_menu, class: 'form-control' %>
+        </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
-  </div>
+        <div class="field mb-3">
+          <%= form.label :price, class: 'form-label' %>
+          <%= form.number_field :price, class: 'form-control' %>
+        </div>
 
-  <div class="actions">
-    <%= form.submit "Submit" %>
+        <div class="actions mt-4">
+          <%= form.submit "Submit", class: 'btn btn-outline-danger rounded-pill' %>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
 
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', root_path, class: 'btn btn-secondary mt-3' %>
