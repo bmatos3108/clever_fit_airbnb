@@ -13,7 +13,8 @@
                   <p class="card-text text-start text-secondary"><%= request.start_date %> ~ <%= request.end_date %></p>
                 </div>
                 <div class="p-2 me-3">
-                  <p class="text-danger mb-0">Cancel</p>
+                  <%# <p class="text-danger mb-0">Cancel</p> %>
+                  <%= link_to "No", booking_path(@request), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
                 </div>
                 <div class="p-2 ms-4">
                   <% if !request.confirmed %>
